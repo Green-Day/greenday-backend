@@ -1,0 +1,30 @@
+<configuration>
+    <property name="pattern" value="%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/greenday-backend.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/greenday-backend-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+    <logger name="org.eclipse.jetty" level="INFO"/>
+    <logger name="io.netty" level="INFO"/>
+</configuration>
