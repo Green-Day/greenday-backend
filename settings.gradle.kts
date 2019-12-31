@@ -1,4 +1,4 @@
-rootProject.name = "greenday-backend"
+rootProject.name = "recyclica-backend"
 
 val kotlinVersion: String by settings
 val shadowVersion: String by settings

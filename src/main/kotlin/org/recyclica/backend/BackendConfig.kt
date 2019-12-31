@@ -1,4 +1,4 @@
-package xyz.greenday.backend
+package org.recyclica.backend
 
 import io.ktor.application.Application
 import java.io.File
@@ -24,7 +24,7 @@ data class BackendConfig(
     )
 }
 
-private const val ROOT_CONFIG_KEY = "greenday"
+private const val ROOT_CONFIG_KEY = "recyclica"
 
 fun Application.readConfig(): BackendConfig {
     val typeInt = Int::class.createType()

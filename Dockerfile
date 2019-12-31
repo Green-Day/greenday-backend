@@ -1,16 +1,16 @@
 #TODO: Replace with gradle-docker-plugin
 FROM openjdk:8-jdk-alpine
 
-ARG user=greenday
-ARG group=greenday
+ARG user=recyclica
+ARG group=recyclica
 ARG uid=1000
 ARG gid=1000
-ARG home=/var/greenday-backend
+ARG home=/var/recyclica-backend
 
 ENV XMX="30M"
 ENV JDBC_STRING=""
 
-COPY build/libs/greenday-backend-*-all.jar /greenday-backend.jar
+COPY build/libs/recyclica-backend-*-all.jar /recyclica-backend.jar
 
 RUN mkdir -p $home \
   && chown ${uid}:${gid} $home \
@@ -24,4 +24,4 @@ WORKDIR ${home}
 
 VOLUME ${home}
 
-ENTRYPOINT java "-Xmx$XMX" -jar /greenday-backend.jar "-P:greenday.database.jdbcString=$JDBC_STRING"
+ENTRYPOINT java "-Xmx$XMX" -jar /recyclica-backend.jar "-P:recyclica.database.jdbcString=$JDBC_STRING"

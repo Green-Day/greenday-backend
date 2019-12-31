@@ -14,7 +14,7 @@ plugins {
     kotlin("jvm")
 }
 
-group = "xyz.greenday.backend"
+group = "org.recyclica.backend"
 version = projectVersion
 
 application {

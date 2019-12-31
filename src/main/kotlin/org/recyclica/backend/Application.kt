@@ -1,6 +1,6 @@
 @file:JvmName("Application")
 
-package xyz.greenday.backend
+package org.recyclica.backend
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.MapperFeature
@@ -16,7 +16,7 @@ import io.ktor.server.netty.EngineMain
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.*
 import org.slf4j.event.Level
-import xyz.greenday.backend.route.root
+import org.recyclica.backend.route.root
 
 fun main(args: Array<String>) {
     EngineMain.main(args)
