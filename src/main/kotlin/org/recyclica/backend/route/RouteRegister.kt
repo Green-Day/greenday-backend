@@ -60,10 +60,11 @@ fun Routing.register() {
                                     registeredOn = DateTime.now(DateTimeZone.UTC)
                                     email = request.email
                                     phone = request.phone
+                                    groups = SizedCollection(GroupManager.DEFAULT)
                                 }
                             }
                             transaction {
-                                newUser.groups = SizedCollection(GroupManager.DEFAULT) // can't be done in one transaction because чё за хуйня
+                                newUser.groups = SizedCollection(GroupManager.DEFAULT) // can't be done in one transaction
                             }
                             call.respond(responseOf())
                         }
