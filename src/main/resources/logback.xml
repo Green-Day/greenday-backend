@@ -8,9 +8,9 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/greenday-backend.log</file>
+        <file>logs/recyclica-backend.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/greenday-backend-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <fileNamePattern>logs/recyclica-backend-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
 
             <maxFileSize>100MB</maxFileSize>
             <maxHistory>30</maxHistory>
