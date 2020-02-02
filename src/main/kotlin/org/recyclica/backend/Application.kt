@@ -15,6 +15,9 @@ import io.ktor.routing.*
 import io.ktor.server.netty.EngineMain
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.*
+import org.recyclica.backend.route.login
+import org.recyclica.backend.route.refreshToken
+import org.recyclica.backend.route.register
 import org.slf4j.event.Level
 import org.recyclica.backend.route.root
 
@@ -36,8 +39,10 @@ fun Application.module() {
     )
 
     transaction {
-//        SchemaUtils.create(Users) - todo
+        SchemaUtils.create(*DATABASE_TABLES)
     }
+
+    GroupManager.setup()
 
     install(XForwardedHeaderSupport)
 
@@ -62,5 +67,8 @@ fun Application.module() {
 
     routing {
         root()
+        refreshToken()
+        login()
+        register()
     }
 }
